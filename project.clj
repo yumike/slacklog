@@ -13,6 +13,7 @@
                  [environ "0.5.0"]
                  [ring/ring-core "1.3.0"]
                  [ring/ring-jetty-adapter "1.3.0"]
+                 [ring/ring-defaults "0.1.0"]
                  [compojure "1.1.8"]
                  [hiccup "1.0.5"]
                  [http-kit "2.1.16"]
@@ -21,7 +22,7 @@
             [lein-ring "0.8.11"]]
   :ragtime {:migrations ragtime.sql.files/migrations
             :database "jdbc:postgresql://localhost:5432/slacklog-clj?user=yumike"}
-  :ring {:handler slacklog.routes/routes}
+  :ring {:handler slacklog.core/handler}
   :jvm-opts ["-Djava.awt.headless=true"]
   :main ^:skip-aot slacklog.core
   :target-path "target/%s"

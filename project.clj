@@ -15,6 +15,7 @@
                  [ring/ring-jetty-adapter "1.3.0"]
                  [ring/ring-defaults "0.1.0"]
                  [compojure "1.1.8"]
+                 [garden "1.1.8"]
                  [hiccup "1.0.5"]
                  [http-kit "2.1.16"]
                  [clj-time "0.7.0"]]

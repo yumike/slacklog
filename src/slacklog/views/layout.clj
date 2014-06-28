@@ -5,8 +5,8 @@
   (page/html5
     [:head
      [:title title]
-     [:link {:rel "stylesheet" :href "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"}]
-     [:link {:rel "stylesheet" :href "/static/application.css"}]]
+     (page/include-css "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css")
+     (page/include-css "/static/application.css")]
     [:body
      [:div.container (seq main)]]))
 

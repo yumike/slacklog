@@ -15,5 +15,4 @@
                                    (where {:channel_id (channel :id)})
                                    (where "(hidden is null or not hidden)")
                                    (order :date))]
-      (view/show :channel channel :messages channel-messages))
-    (not-found)))
+      (view/show :channel channel :messages channel-messages))))

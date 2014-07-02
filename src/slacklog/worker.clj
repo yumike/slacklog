@@ -39,15 +39,19 @@
   (log/info "Starting worker")
   (future
     (loop []
-      (log/info "Syncing users")
-      (sync-users)
+      (try
+        (log/info "Syncing users")
+        (sync-users)
 
-      (log/info "Syncing channels")
-      (sync-channels)
+        (log/info "Syncing channels")
+        (sync-channels)
 
-      (log/info "Syncing messages")
-      (sync-messages)
+        (log/info "Syncing messages")
+        (sync-messages)
+
+        (catch Exception e (log/error e "Error during syncing.")))
 
       (log/info "Going to sleep")
       (Thread/sleep (-> 5 (* 60) (* 1000)))
+
       (recur))))

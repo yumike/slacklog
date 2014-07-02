@@ -24,7 +24,6 @@
     (doseq [channel (db/select-channels)]
       (let [latest (db/get-latest-message-date (:id channel))
             latest-str (when latest (utils/timestamp-to-string latest))]
-        (log/info "channel:" channel "latest:" latest-str)
         (transaction
           (doseq [api-message (api/fetch-messages (:sid channel) latest-str)]
             (db/create-message {:channel_id (:id channel)

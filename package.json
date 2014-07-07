@@ -1,0 +1,11 @@
+{
+  "name": "slacklog",
+  "version": "0.0.0",
+  "dependencies": {
+    "bower": "^1.3.7",
+    "gulp": "^3.8.5",
+    "gulp-bower": "0.0.6",
+    "gulp-stylus": "^1.0.2",
+    "nib": "^1.0.3"
+  }
+}

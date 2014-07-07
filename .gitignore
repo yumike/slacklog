@@ -1,3 +1,5 @@
+/assets/bower_components
+/node_modules
 /target
 /classes
 /checkouts

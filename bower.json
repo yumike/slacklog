@@ -1,0 +1,12 @@
+{
+  "name": "slacklog",
+  "version": "0.0.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "assets/bower_components"
+  ],
+  "dependencies": {
+    "bootstrap-stylus": "git://github.com/Acquisio/bootstrap-stylus.git#e16930a4fe"
+  }
+}

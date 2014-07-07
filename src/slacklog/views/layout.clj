@@ -5,8 +5,7 @@
   (page/html5
     [:head
      [:title title]
-     (page/include-css "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css")
-     (page/include-css "/static/application.css")]
+     (page/include-css "/application.css")]
     [:body
      [:div.container (seq main)]]))
 

@@ -1,8 +1,7 @@
 (ns slacklog.controllers.channels
   (:require [korma.core :refer [select where with fields order]]
             [slacklog.db :refer [users channels messages]]
-            [slacklog.views.channels :as view]
-            [slacklog.controllers.utils :refer [not-found]]))
+            [slacklog.views.channels :as view]))
 
 (defn index []
   (view/index :channels (select channels (order :name))))

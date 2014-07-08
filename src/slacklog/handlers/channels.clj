@@ -1,4 +1,4 @@
-(ns slacklog.controllers.channels
+(ns slacklog.handlers.channels
   (:require [korma.core :refer [select where with fields order]]
             [slacklog.db :as db]
             [slacklog.views.channels :as view]))

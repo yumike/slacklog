@@ -7,7 +7,7 @@
      [:title title]
      (page/include-css "/application.css")]
     [:body
-     [:div.container (seq main)]
+     [:div.main (seq main)]
      (page/include-js "/application.js")]))
 
 (defn not-found []

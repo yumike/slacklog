@@ -1,12 +1,43 @@
 @require 'bower_components/bootstrap-stylus/stylus/bootstrap'
 
-.container
-  margin-top: 50px
-  margin-bottom: 50px
+.main
+  padding: 50px 40px
+  background: #f9f9f9
 
 .channels
   position: fixed
+  padding: 0
+  width: 200px
   list-style-type: none
 
-.messages
+.message-groups
+  margin-left: 220px
+  padding: 0 10px 10px
+  background: #fff
+  border: 1px solid #e0e0e0
   list-style-type: none
+
+  &__day
+    display: block
+    margin: 10px 0
+    text-align: center
+
+.messages
+  padding: 0
+  list-style-type: none
+
+.message
+  &__username
+    float: left
+    width: 150px
+    font-weight: bold
+    text-align: right
+
+  &__text
+    margin-left: 170px
+    word-wrap: break-word
+
+  &__date
+    color: #ccc
+    float: right
+    margin-left: 10px

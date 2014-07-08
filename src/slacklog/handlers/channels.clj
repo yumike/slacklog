@@ -13,6 +13,7 @@
         :messages (select db/messages
                           (with db/users
                             (fields [:name :user-name]))
-                          (where {:channel_id (current-channel :id)})
+                          (where {:channel_id (current-channel :id)
+                                  :text [not= nil]})
                           (where "(hidden is null or not hidden)")
                           (order :date))))))

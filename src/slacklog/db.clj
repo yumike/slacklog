@@ -25,9 +25,6 @@
 (defn select-channels []
   (select channels (order :name)))
 
-(defn get-channel [form]
-  (first (select channels (where form))))
-
 (defn get-latest-message-date [channel-id]
   (-> (select messages
           (aggregate (max :date) :max_date)
@@ -40,6 +37,3 @@
 
 (defn create-message [message]
   (insert messages (values message)))
-
-(defn select-messages [channel-id]
-  (select messages (where {:channel_id channel-id}) (order :date)))

@@ -4,10 +4,12 @@
             [slacklog.views.channels :as view]))
 
 (defn show [channel-name]
-  (let [channels (select db/channels (order :name))
+  (let [users (select db/users)
+        channels (select db/channels (order :name))
         current-channel (first (select db/channels (where {:name channel-name})))]
     (when current-channel
       (view/show
+        :users users
         :channels channels
         :current-channel current-channel
         :messages (select db/messages

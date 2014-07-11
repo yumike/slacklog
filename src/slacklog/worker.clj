@@ -3,7 +3,7 @@
             [korma.db :refer [transaction]]
             [slacklog.api :as api]
             [slacklog.db :as db]
-            [slacklog.utils :as utils]))
+            [slacklog.util :as util]))
 
 (defn sync-users []
   (doseq [api-user (api/fetch-users)]
@@ -23,7 +23,7 @@
   (let [user-id-map (db/get-user-id-map)]
     (doseq [channel (db/select-channels)]
       (let [latest (db/get-latest-message-date (:id channel))
-            latest-str (when latest (utils/timestamp-to-string latest))]
+            latest-str (when latest (util/timestamp-to-string latest))]
         (transaction
           (doseq [api-message (api/fetch-messages (:sid channel) latest-str)]
             (db/create-message {:channel_id (:id channel)
@@ -31,7 +31,7 @@
                                 :type (:type api-message)
                                 :subtype (:subtype api-message)
                                 :hidden (:hidden api-message)
-                                :date (utils/string->timestamp (:date api-message))
+                                :date (util/string->timestamp (:date api-message))
                                 :text (:text api-message)})))))))
 
 (defn start []

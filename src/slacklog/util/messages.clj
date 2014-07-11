@@ -1,4 +1,4 @@
-(ns slacklog.utils.messages
+(ns slacklog.util.messages
   (:refer-clojure :exclude [format])
   (:require [clojure.string :as string]))
 

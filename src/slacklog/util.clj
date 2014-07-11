@@ -1,4 +1,4 @@
-(ns slacklog.utils
+(ns slacklog.util
   (:require [clj-time.core :as t]
             [clj-time.format :as f]
             [clj-time.coerce :as c]

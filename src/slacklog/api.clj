@@ -4,7 +4,7 @@
             [clj-time.coerce :as timec]
             [environ.core :refer [env]]
             [org.httpkit.client :as http]
-            [slacklog.utils :as utils]))
+            [slacklog.util :as util]))
 
 (def token (env :slacklog-api-token))
 
@@ -18,7 +18,7 @@
                      (select-keys % [:id :name :created])
                      {:id :sid, :created :date})
                    [:date]
-                   utils/long->timestamp)
+                   util/long->timestamp)
        (:channels (request "https://slack.com/api/channels.list" {:token token}))))
 
 (defn fetch-users []

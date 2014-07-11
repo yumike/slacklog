@@ -32,6 +32,3 @@
 (defn timestamp->time-string [timestamp]
   (f/unparse (f/with-zone (f/formatters :hour-minute) msk-time-zone)
              (c/from-sql-time timestamp)))
-
-(defn message-day [{:keys [date]}]
-  (t/to-time-zone (c/from-sql-time date) msk-time-zone))

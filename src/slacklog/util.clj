@@ -32,3 +32,11 @@
 (defn timestamp->time-string [timestamp]
   (f/unparse (f/with-zone (f/formatters :hour-minute) msk-time-zone)
              (c/from-sql-time timestamp)))
+
+(defn timestamp->date-string [timestamp]
+  (f/unparse (f/with-zone (f/formatters :year-month-day) msk-time-zone)
+             (c/from-sql-time timestamp)))
+
+(defn timestamp->date [timestamp]
+  (let [date (t/to-time-zone (c/from-sql-time timestamp) msk-time-zone)]
+    (t/date-time (t/year date) (t/month date) (t/day date))))

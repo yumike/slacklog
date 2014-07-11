@@ -1,8 +1,5 @@
 (ns slacklog.views.channels
-  (:require [clj-time.core :as t]
-            [clj-time.format :as f]
-            [clj-time.coerce :as c]
-            [hiccup.core :refer [h]]
+  (:require [hiccup.core :refer [h]]
             [slacklog.views.layout :as layout]
             [slacklog.util :as util]
             [slacklog.util.messages :as util.messages]))
@@ -28,15 +25,11 @@
    (for [messages message-groups]
      [:li
       [:strong.message-groups__day
-       (f/unparse (f/with-zone (f/formatters :year-month-day) util/msk-time-zone)
-                  (c/from-sql-time (:date (first messages))))]
+       (util/timestamp->date-string (:date (first messages)))]
       (messages-block messages users-map channels-map)])])
 
 (defn to-message-groups [messages]
-  (partition-by
-    #(let [date (t/to-time-zone (c/from-sql-time (:date %)) util/msk-time-zone)]
-       (t/date-time (t/year date) (t/month date) (t/day date)))
-    messages))
+  (partition-by #(util/timestamp->date (:date %)) messages))
 
 (defn show [& {:keys [users channels current-channel messages]}]
   (layout/default

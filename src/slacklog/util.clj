@@ -23,13 +23,13 @@
       (.setNanos timestamp nanosec)
       timestamp)))
 
-(defn timestamp-to-string [timestamp]
+(defn timestamp->string [timestamp]
   (str
     (quot (.getTime timestamp) 1000)
     "."
     (quot (.getNanos timestamp) 1000)))
 
-(defn to-message-time [timestamp]
+(defn timestamp->time-string [timestamp]
   (f/unparse (f/with-zone (f/formatters :hour-minute) msk-time-zone)
              (c/from-sql-time timestamp)))
 

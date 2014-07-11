@@ -20,7 +20,7 @@
      [:li.clearfix.message
       [:div.message__username user-name]
       [:div.message__text
-       [:span.message__date (util/to-message-time date)]
+       [:span.message__date (util/timestamp->time-string date)]
        (util.messages/format text users-map channels-map)]])])
 
 (defn message-groups-block [message-groups users-map channels-map]

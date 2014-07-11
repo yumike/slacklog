@@ -23,7 +23,7 @@
   (let [user-id-map (db/get-user-id-map)]
     (doseq [channel (db/select-channels)]
       (let [latest (db/get-latest-message-date (:id channel))
-            latest-str (when latest (util/timestamp-to-string latest))]
+            latest-str (when latest (util/timestamp->string latest))]
         (transaction
           (doseq [api-message (api/fetch-messages (:sid channel) latest-str)]
             (db/create-message {:channel_id (:id channel)

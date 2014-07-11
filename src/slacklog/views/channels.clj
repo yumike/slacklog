@@ -1,6 +1,5 @@
 (ns slacklog.views.channels
-  (:require [hiccup.core :refer [h]]
-            [slacklog.views.layout :as layout]
+  (:require [slacklog.views.layout :as layout]
             [slacklog.util :as util]
             [slacklog.util.messages :as util.messages]))
 

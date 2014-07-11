@@ -7,16 +7,16 @@
 (def msk-time-zone
   (t/time-zone-for-offset 4))
 
-(defn string-to-long [long-str]
+(defn string->long [long-str]
   (read-string (string/replace-first long-str #"^0+" "")))
 
-(defn long-to-timestamp [sec]
+(defn long->timestamp [sec]
   (new java.sql.Timestamp (* sec 1000)))
 
-(defn string-to-timestamp [timestamp-str]
+(defn string->timestamp [timestamp-str]
   (let [[sec-str microsec-str] (string/split timestamp-str #"\." 2)
-        sec       (string-to-long sec-str)
-        microsec  (if microsec-str (string-to-long microsec-str) 0)
+        sec       (string->long sec-str)
+        microsec  (if microsec-str (string->long microsec-str) 0)
         nanosec   (* microsec 1000)
         timestamp (new java.sql.Timestamp (* sec 1000))]
     (do

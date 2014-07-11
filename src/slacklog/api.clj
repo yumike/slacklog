@@ -18,7 +18,7 @@
                      (select-keys % [:id :name :created])
                      {:id :sid, :created :date})
                    [:date]
-                   utils/long-to-timestamp)
+                   utils/long->timestamp)
        (:channels (request "https://slack.com/api/channels.list" {:token token}))))
 
 (defn fetch-users []

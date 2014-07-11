@@ -31,7 +31,7 @@
                                 :type (:type api-message)
                                 :subtype (:subtype api-message)
                                 :hidden (:hidden api-message)
-                                :date (utils/string-to-timestamp (:date api-message))
+                                :date (utils/string->timestamp (:date api-message))
                                 :text (:text api-message)})))))))
 
 (defn start []

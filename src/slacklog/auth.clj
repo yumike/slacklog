@@ -1,7 +1,11 @@
 (ns slacklog.auth
   (:require [ring.util.request :refer [path-info]]
+            [environ.core :refer [env]]
             [cemerick.friend :as friend]
             [cemerick.friend.openid :as openid]))
+
+(def allow-anon?
+  (= (env :slacklog-auth-anon) "true"))
 
 (defn wrap-xrds [handler]
   (fn [{:keys [params] :as request}]
@@ -15,7 +19,7 @@
 
 (defn wrap-auth [handler]
   (-> handler
-      (friend/authenticate {:allow-anon? false
+      (friend/authenticate {:allow-anon? allow-anon?
                             :login-uri "/openid"
                             :workflows [(openid/workflow :credential-fn identity)]})
       (wrap-xrds)))

@@ -21,7 +21,7 @@
                  [compojure "1.1.8"]
                  [com.cemerick/friend "0.2.1"]
                  [hiccup "1.0.5"]
-                 [http-kit "2.1.16"]
+                 [http-kit "2.1.18"]
                  [clj-time "0.7.0"]]
   :source-paths ["src", "src-cljs"]
   :plugins [[ragtime/ragtime.lein "0.3.6"]

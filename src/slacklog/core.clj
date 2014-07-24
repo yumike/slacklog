@@ -1,5 +1,5 @@
 (ns slacklog.core
-  (:require [ring.adapter.jetty :as jetty]
+  (:require [org.httpkit.server :refer [run-server]]
             [ring.middleware.defaults :refer [wrap-defaults site-defaults]]
             [slacklog.auth :refer [wrap-auth]]
             [slacklog.worker :as worker]
@@ -13,4 +13,4 @@
 
 (defn -main [& args]
   (worker/start)
-  (jetty/run-jetty handler {:port 3000}))
+  (run-server handler {:port 3000}))

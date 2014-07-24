@@ -17,7 +17,6 @@
                  [korma "0.3.2"]
                  [environ "0.5.0"]
                  [ring/ring-core "1.3.0"]
-                 [ring/ring-jetty-adapter "1.3.0"]
                  [ring/ring-defaults "0.1.0"]
                  [compojure "1.1.8"]
                  [com.cemerick/friend "0.2.1"]

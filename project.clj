@@ -4,7 +4,6 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.6.0"]
-                 [org.clojure/clojurescript  "0.0-2234"]
                  [log4j "1.2.15" :exclusions [javax.mail/mail
                                               javax.jms/jms
                                               com.sun.jdmk/jmxtools
@@ -23,7 +22,6 @@
                  [hiccup "1.0.5"]
                  [http-kit "2.1.18"]
                  [clj-time "0.7.0"]]
-  :source-paths ["src", "src-cljs"]
   :plugins [[ragtime/ragtime.lein "0.3.6"]
             [lein-ring "0.8.11"]
             [lein-cljsbuild "1.0.3"]]
@@ -36,4 +34,6 @@
   :jvm-opts ["-Djava.awt.headless=true"]
   :main ^:skip-aot slacklog.core
   :target-path "target/%s"
-  :profiles {:uberjar {:aot :all}})
+  :profiles {:dev {:dependencies [[org.clojure/clojurescript "0.0-2234"]]
+                   :source-paths ["src", "src-cljs"]}
+             :uberjar {:aot :all}})

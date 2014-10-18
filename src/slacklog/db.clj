@@ -4,6 +4,9 @@
             [korma.core :refer [defentity select insert update where aggregate
                                 belongs-to set-fields values order]]))
 
+(def db-name (env :slacklog-db-name))
+(def db-user (env :slacklog-db-user))
+
 (defdb db
   (postgres
     {:db   (env :slacklog-db-name)
